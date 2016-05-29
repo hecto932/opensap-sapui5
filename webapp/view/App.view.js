@@ -15,10 +15,17 @@ sap.ui.jsview("opensap.myapp.view.App", {
 	createContent: function(oController) {
 
 		var oButton = new sap.m.Button({
-			text: "Say Hello!",
+			text: "{i18n>showHelloButtonText}",
 			press: function(oEvent){
 				oController.onShowHello();
 			}
+		});
+
+		var oInput = new sap.m.Input({
+			value: "{helloPanel>/recipient/name}",
+			description: "Hello {helloPanel>/recipient/name}",
+			valueLiveUpdate: true,
+			width: "60%"
 		});
 
 		var oCarousel = new sap.m.Carousel({
@@ -37,6 +44,7 @@ sap.ui.jsview("opensap.myapp.view.App", {
 		var oPage = new sap.m.Page({
 			content: [
 				oCarousel,
+				oInput,
 				oButton
 			]
 		});
