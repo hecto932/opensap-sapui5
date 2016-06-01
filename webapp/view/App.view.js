@@ -14,6 +14,8 @@ sap.ui.jsview("opensap.myapp.view.App", {
 	 */
 	createContent: function(oController) {
 
+
+
 		var oButton = new sap.m.Button({
 			text: "{i18n>showHelloButtonText}",
 			press: function(oEvent){
@@ -41,17 +43,57 @@ sap.ui.jsview("opensap.myapp.view.App", {
 			]
 		});
 
-		var oPage = new sap.m.Page({
+/*		var oPage = new sap.m.Page({
 			content: [
 				oCarousel,
 				oInput,
 				oButton
 			]
+		});*/
+
+		var oIconTabBar = new sap.m.IconTabBar("idTopLevelIconTabBar", {
+			text: "{i18n>gettingStartedFilter}",
+			items: [
+				new sap.m.IconTabFilter({
+	                key : "Info",
+	                icon : "sap-icon://hint",
+	                text: "Prueba",
+	                content: [
+	                	oCarousel,
+						oInput,
+						oButton
+	                ]
+	           	}),
+	           	new sap.m.IconTabSeparator({}),
+	           	new sap.m.IconTabFilter({
+	                key : "Info",
+	                icon : "sap-icon://hint",
+	                text: "Prueba 2",
+	                content: [
+	                	new sap.m.MessageStrip({
+	                		type: "Information",
+	                		showIcon: true,
+	                		text: "Here's a Form Layout inside an Icon Tab Bar the labels on"
+	                	}),
+	                	new sap.m.Toolbar({
+	                		content: [
+	                			new sap.m.Button({
+	                				type: "Accept",
+	                				text: "Publish"
+	                			}),
+	                			new sap.m.Button({
+	                				text: "Save Draft"
+	                			})
+	                		]
+	                	})
+	                ]
+	           	})
+			]
 		});
 
 		var App = new sap.m.App({
 			pages: [
-				oPage
+				oIconTabBar
 			]
 		})
 
