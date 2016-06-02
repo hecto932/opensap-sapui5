@@ -50,7 +50,18 @@ sap.ui.jsview("opensap.myapp.view.App", {
 				oButton
 			]
 		});*/
-
+	
+		var oList = new sap.m.List({
+			headerText: "Products"
+		});
+		
+		var oObjectListItem = new sap.m.ObjectListItem({
+			title: "{title}",
+			number: "{Price}",
+			intro: "{ProductID}",
+			numberUnit: "{CurrencyCode}"
+		});
+		oList.bindAggregation("items", "/ProductSet", oObjectListItem);
 		var oIconTabBar = new sap.m.IconTabBar("idTopLevelIconTabBar", {
 			text: "{i18n>gettingStartedFilter}",
 			items: [
@@ -86,6 +97,15 @@ sap.ui.jsview("opensap.myapp.view.App", {
 	                			})
 	                		]
 	                	})
+	                ]
+	           	}),
+	           	new sap.m.IconTabSeparator({}),
+	           	new sap.m.IconTabFilter({
+	                key : "db",
+	                icon : "sap-icon://hint",
+	                text: "Data Binding",
+	                content: [
+	                	oList
 	                ]
 	           	})
 			]
