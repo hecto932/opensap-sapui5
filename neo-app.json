@@ -20,7 +20,7 @@
 			"description": "SAPUI5 Test Resources"
 		},
 		{
-			"path": "/destinations/testES4",
+			"path": "https://sapes4.sapdevcenter.com/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/",
 			"target": {
 				"type": "destination",
 				"name": "testES4"
